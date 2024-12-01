@@ -1,33 +1,21 @@
-#   Import libraries for handling MQTT messages, unit tests, asynchronos test events and JSON messages
 import paho.mqtt.client as mqtt
 import unittest
 import json   
-from threading import Event
+import time
 
-#   Callback function for handling MQTT messages 
 def on_message(client, userdata, message):
-    #   Decode message and store in attribute
     TestRulesEngine.receivedMessage = json.loads(message.payload.decode())
 
-    #   Notify event to proceed
-    TestRulesEngine.event.set()
-
-#   Rules engine unit test class
 class TestRulesEngine(unittest.TestCase):  
     receivedMessage = None
-    event = Event()
     
-    #   Setup MQTT client,  connect to broker and subcribe to the output topic
     def setUp(self):
         self.client = mqtt.Client("Unit Test")
-        self.broker = "test.mosquitto.org" 
-        self.port = 1883
         self.client.on_message = on_message
-        self.client.connect(self.broker, self.port)
+        self.client.connect("test.mosquitto.org" , 1883)
         self.client.subscribe("BRE/calculateWinterSupplementOutput")
         self.client.loop_start()
 
-    #   Stop loop after tests
     def tearDown(self):
         self.client.loop_stop()
 
@@ -38,10 +26,9 @@ class TestRulesEngine(unittest.TestCase):
             "familyComposition": "single",
             "familyUnitInPayForDecember": False
         }
-        TestRulesEngine.event.clear()
         TestRulesEngine.receivedMessage = None
         self.client.publish("BRE/calculateWinterSupplementInput", json.dumps(data))
-        TestRulesEngine.event.wait(timeout=10)
+        time.sleep(10)
         expectedOutput = {
             "id": data["id"], 
             "isEligible": False, 
@@ -58,10 +45,9 @@ class TestRulesEngine(unittest.TestCase):
             "familyComposition": "single",
             "familyUnitInPayForDecember": True
         }
-        TestRulesEngine.event.clear()
         TestRulesEngine.receivedMessage = None
         self.client.publish("BRE/calculateWinterSupplementInput", json.dumps(data))
-        TestRulesEngine.event.wait(timeout=10)
+        time.sleep(10)
         expectedOutput = {
             "id": data["id"], 
             "isEligible": True, 
@@ -78,10 +64,9 @@ class TestRulesEngine(unittest.TestCase):
             "familyComposition": "single",
             "familyUnitInPayForDecember": True
         }
-        TestRulesEngine.event.clear()
         TestRulesEngine.receivedMessage = None
         self.client.publish("BRE/calculateWinterSupplementInput", json.dumps(data))
-        TestRulesEngine.event.wait(timeout=10)
+        time.sleep(10)
         expectedOutput = {
             "id": data["id"], 
             "isEligible": True, 
@@ -98,10 +83,9 @@ class TestRulesEngine(unittest.TestCase):
             "familyComposition": "couple",
             "familyUnitInPayForDecember": True
         }
-        TestRulesEngine.event.clear()
         TestRulesEngine.receivedMessage = None
         self.client.publish("BRE/calculateWinterSupplementInput", json.dumps(data))
-        TestRulesEngine.event.wait(timeout=10)
+        time.sleep(10)
         expectedOutput = {
             "id": data["id"], 
             "isEligible": True, 
@@ -118,10 +102,9 @@ class TestRulesEngine(unittest.TestCase):
             "familyComposition": "couple",
             "familyUnitInPayForDecember": True
         }
-        TestRulesEngine.event.clear()
         TestRulesEngine.receivedMessage = None
         self.client.publish("BRE/calculateWinterSupplementInput", json.dumps(data))
-        TestRulesEngine.event.wait(timeout=10)
+        time.sleep(10)
         expectedOutput = {
             "id": data["id"], 
             "isEligible": True, 

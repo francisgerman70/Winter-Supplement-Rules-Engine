@@ -34,19 +34,28 @@ The unit test simulates publishing input to a topic and receiving responses from
 
 ## How To Run
 ```
-In the winter supplement engine folder run python3 rulesEngine.py in terminal to run the rules engine, while rulesEngine.py is running go into the tests folder and run python3 rulesEngineUnitTest.py in a new terminal to run the unit test that tests the rules engine.
+In the winter supplement engine folder run "python3 rulesEngine.py" in terminal to run the rules engine, while rulesEngine.py is running go into the tests folder and run "python3 rulesEngineUnitTest.py" in a new terminal to run the unit test that tests the rules engine.
 ```
-Below is the output after performing the above properly.
-received message:  {"id": "4", "numberOfChildren": 5, "familyComposition": "couple", "familyUnitInPayForDecember": true}
+### Below is the output after performing the above properly.
+* received message:  {"id": "4", "numberOfChildren": 5, "familyComposition": "couple", "familyUnitInPayForDecember": true}
+
 publishing output:{'id': '4', 'isEligible': True, 'baseAmount': 120.0, 'childrenAmount': 100.0, 'supplementAmount': 220.0}
-received message:  {"id": "1", "numberOfChildren": 1, "familyComposition": "single", "familyUnitInPayForDecember": false}
+
+* received message:  {"id": "1", "numberOfChildren": 1, "familyComposition": "single", "familyUnitInPayForDecember": false}
+
 publishing output:{'id': '1', 'isEligible': False, 'baseAmount': 0.0, 'childrenAmount': 0.0, 'supplementAmount': 0.0}
-received message:  {"id": "2", "numberOfChildren": 0, "familyComposition": "single", "familyUnitInPayForDecember": true}
+
+* received message:  {"id": "2", "numberOfChildren": 0, "familyComposition": "single", "familyUnitInPayForDecember": true}
+
 publishing output:{'id': '2', 'isEligible': True, 'baseAmount': 60.0, 'childrenAmount': 0.0, 'supplementAmount': 60.0}
-received message:  {"id": "3", "numberOfChildren": 6, "familyComposition": "single", "familyUnitInPayForDecember": true}
+
+* received message:  {"id": "3", "numberOfChildren": 6, "familyComposition": "single", "familyUnitInPayForDecember": true}
+  
 publishing output:{'id': '3', 'isEligible': True, 'baseAmount': 120.0, 'childrenAmount': 120.0, 'supplementAmount': 240.0}
-received message:  {"id": "5", "numberOfChildren": 8, "familyComposition": "couple", "familyUnitInPayForDecember": true}
+
+* received message:  {"id": "5", "numberOfChildren": 8, "familyComposition": "couple", "familyUnitInPayForDecember": true}
+  
 publishing output:{'id': '5', 'isEligible': True, 'baseAmount': 120.0, 'childrenAmount': 160.0, 'supplementAmount': 280.0}
 
 ## Note
-* After running unit test multiple times, some test cases might start to fail. A solution will be to restart your local machine and try again.
+* After running unit test multiple times, some test cases might start to fail due to flakiness. A solution will be to restart your local machine and try again.
