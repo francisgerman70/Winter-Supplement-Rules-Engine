@@ -29,11 +29,11 @@ The unit test simulates publishing input to a topic and receiving responses from
 
 ### Setup
 * Clone the repository
-* cd winter supplement engine
+* cd winter supplement rules engine
 
 ## How To Run
 ```
-In the winter supplement engine folder run "python3 rulesEngine.py" in terminal to run the rules engine, while rulesEngine.py is running go into the tests folder and run "python3 rulesEngineUnitTest.py" in a new terminal to run the unit test that tests the rules engine.
+In the winter supplement rules engine folder run "python3 rulesEngine.py" in terminal to run the rules engine, while rulesEngine.py is running go into the tests folder and run "python3 rulesEngineUnitTest.py" in a new terminal to run the unit test that tests the rules engine.
 ```
 ### Below is the output after performing the above properly.
 * received message:  {"id": "4", "numberOfChildren": 5, "familyComposition": "couple", "familyUnitInPayForDecember": true}
