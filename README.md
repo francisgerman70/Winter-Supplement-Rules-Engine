@@ -24,9 +24,8 @@ The unit test simulates publishing input to a topic and receiving responses from
 ### Programming Language: Python
 
 ### Prerequisites
-* python 3
-* mosquitto
-* install paho-mqtt==1.6.1
+* install python 3
+* install paho-mqtt==1.6.1 (pip install paho-mqtt==1.6.1)
 
 ### Setup
 * Clone the repository
