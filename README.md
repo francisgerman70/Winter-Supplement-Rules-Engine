@@ -18,7 +18,6 @@ The unit test simulates publishing input to a topic and receiving responses from
 ### Resources:
 >* https://medium.com/python-point/mqtt-basics-with-python-examples-7c758e605d4
 >* https://github.com/phyunsj/mqtt-rule-engine/blob/master/unittest/mqtt_rule_test.py
->* https://stackoverflow.com/questions/54568782/how-to-implement-multithreading-for-a-mqtt-client-that-can-send-and-receive-mess
 
 ### Programming Language: Python
 
