@@ -55,4 +55,4 @@ publishing output:{'id': '3', 'isEligible': True, 'baseAmount': 120.0, 'children
 publishing output:{'id': '5', 'isEligible': True, 'baseAmount': 120.0, 'childrenAmount': 160.0, 'supplementAmount': 280.0}
 
 ## Note
-* After running unit test multiple times, some test cases might start to fail due to flakiness. A solution will be to restart your local machine and try again.
+* After running unit test multiple times, some test cases might start to fail due to flakiness of unit tests. A solution will be to restart your local machine and try again.
